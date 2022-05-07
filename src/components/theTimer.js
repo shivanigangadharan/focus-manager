@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useTimerDuration } from '../context/timerContext';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-
-
+import './theTimer.css';
+import playpause from '../assets/playpause.wav';
+import stop from '../assets/stop.wav';
 
 export default function TheTimer() {
 
@@ -10,36 +11,71 @@ export default function TheTimer() {
 
     const [currentindex, setCurrentIndex] = useState(0);
     const [timer, setTimer] = useState(userTimer);
-    const [btnText, setBtnText] = useState("START")
-    const [remainingTime, setRemainingTime] = useState(userTimer);
     const [running, setRunning] = useState(false);
-    const [intervalID, setIntervalID] = useState();
+    const [type, setType] = useState("pomodoro");
+    const [minutes, setMinutes] = useState(parseInt(timer / 60));
+    const [seconds, setSeconds] = useState(timer % 60);
+    const playPause = new Audio(playpause);
+    const Stop = new Audio(stop);
 
     useEffect(() => {
-        setTimer(userTimer);
-    }, [userTimer])
+        if (type === "pomodoro") {
+            setTimer(userTimer);
+        } else if (type === "shortbreak") {
+            setTimer(300);
+        } else {
+            setTimer(600);
+        }
+    }, [userTimer, type]);
+
+    const children = ({ remainingTime }) => {
+        const minutes = Math.floor(remainingTime / 60)
+        const seconds = remainingTime % 60
+
+        return <div className="remaining-time"> {minutes}:{seconds}</div>
+    }
+
+    const toggleClick = () => {
+        setRunning(!running);
+        playPause.play();
+    }
 
     return (
-        <div>
-            <CountdownCircleTimer
-                key={currentindex}
-                isPlaying={running}
-                duration={timer}
-                colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-                colorsTime={[7, 5, 2, 0]}
-                strokeLinecap="square"
-                onComplete={() => {
-                    setCurrentIndex(currentindex + 1);
-                    setRunning(false);
-                }
-                }
-            >
-                {({ remainingTime }) => remainingTime}
-            </CountdownCircleTimer>
+        <div className="timer-container">
+            <div className="timer-section">
+                <div>
+                    <button className={type === "pomodoro" ? "btn-type selected-type" : "btn-type"} onClick={() => { setType("pomodoro") }}> Pomodoro </button>
+                    <button className={type === "shortbreak" ? "btn-type selected-type" : "btn-type"} onClick={() => { setType("shortbreak"); setCurrentIndex(currentindex + 1); setRunning(false); }}> Short break </button>
+                    <button className={type === "longbreak" ? "btn-type selected-type" : "btn-type"} onClick={() => { setType("longbreak"); setCurrentIndex(currentindex + 1); setRunning(false); }}> Long break </button>
+                </div>
+                <CountdownCircleTimer
+                    class="circle-timer"
+                    key={currentindex}
+                    isPlaying={running}
+                    duration={timer}
+                    colors={['#2dad26', '#dbca0d', '#db710d', '#a3130b']}
+                    colorsTime={[8, 5, 4, 0]}
+                    strokeLinecap="round"
+                    onComplete={() => {
+                        setCurrentIndex(currentindex + 1);
+                        setRunning(false);
+                    }
+                    }
+                >
+                    {children}
+                </CountdownCircleTimer>
+                <div className="btn-div">
+                    {
+                        running ? <i className="fa-solid fa-pause icon pause" onClick={toggleClick}></i>
+                            : <i className="fa-solid fa-play icon" onClick={toggleClick}></i>
+                    }
 
-            <button onClick={() => { setRunning((running) => !running) }}> {running ? "PAUSE" : "START"} </button>
-            <button onClick={() => { setCurrentIndex(currentindex + 1) }}> STOP </button>
+                    <i onClick={() => { setCurrentIndex(currentindex + 1); setRunning(false); Stop.play() }} className="fa-solid fa-square icon stop"></i>
+                </div>
+            </div>
+            <div className="tasks-section">
 
+            </div>
         </div >
     )
 }

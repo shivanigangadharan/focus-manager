@@ -5,7 +5,7 @@ export const TimerDuration = createContext();
 export const useTimerDuration = () => useContext(TimerDuration);
 
 export const TimerDurationProvider = ({ children }) => {
-    const [userTimer, setUserTimer] = useState(10);
+    const [userTimer, setUserTimer] = useState(1500);
     return (
         <TimerDuration.Provider value={{ userTimer, setUserTimer }}>
             {children}
