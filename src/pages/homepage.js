@@ -1,10 +1,9 @@
 import React from 'react';
-import TheTimer from '../components/theTimer';
-import { useTimerDuration } from '../context/timerContext';
 
 export default function Homepage() {
     return (
         <div>
+            <h1> Homepage</h1>
         </div>
     )
 }
