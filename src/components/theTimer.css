@@ -9,7 +9,7 @@
 .timer-section{
     background: rgb(68, 68, 68);
     width: max-content;
-    padding: 2% 5%;
+    padding: 2rem 1rem;
     border: 1px solid rgb(68, 68, 68);
     border-radius: 10px;
     display: flex;
@@ -54,6 +54,8 @@
     height: 30px;
     width: 30px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 .icon:hover{
     background: rgb(179, 179, 179);

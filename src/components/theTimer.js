@@ -66,11 +66,11 @@ export default function TheTimer() {
                 </CountdownCircleTimer>
                 <div className="btn-div">
                     {
-                        running ? <i className="fa-solid fa-pause icon pause" onClick={toggleClick}></i>
-                            : <i className="fa-solid fa-play icon" onClick={toggleClick}></i>
+                        running ? <span className="icon pause"> <i onClick={toggleClick} className="fa-solid fa-pause"></i></span>
+                            : <span className="icon"> <i onClick={toggleClick} className="fa-solid fa-play"></i> </span>
                     }
 
-                    <i onClick={() => { setCurrentIndex(currentindex + 1); setRunning(false); Stop.play() }} className="fa-solid fa-square icon stop"></i>
+                    <span className="icon stop" onClick={() => { setCurrentIndex(currentindex + 1); setRunning(false); Stop.play() }}><i className="fa-solid fa-square"></i></span>
                 </div>
             </div>
             <div className="tasks-section">

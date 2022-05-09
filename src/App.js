@@ -6,7 +6,6 @@ import TimerPage from './pages/timerPage';
 function App() {
   return (
     <div className="App">
-      {/* <Homepage /> */}
       <TimerPage />
     </div>
   );
