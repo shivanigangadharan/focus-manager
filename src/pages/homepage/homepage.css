@@ -6,7 +6,7 @@
     padding: clamp(2rem, 10%, 8rem);
 }
 .pomo-title{
-    font-size: clamp(5rem, 500%, 10rem);
+    font-size: clamp(4rem, 500%, 8rem);
     font-weight: 800;
     color: var(--lightgrey);
 }
@@ -18,6 +18,14 @@
 }
 .timer-image{
     width: 15rem;
+}
+@media screen and (max-width: 900px){
+    .timer-image{
+        display: none;
+    }
+    .pomo-title{
+        font-size: 400%;
+    }
 }
 .get-started{
     border: 2px solid var(--lightlavender);
