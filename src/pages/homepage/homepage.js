@@ -18,7 +18,7 @@ export default function Homepage() {
                     </Link>
                 </center>
             </div>
-            <img className="timer-image" src={timerImage} />
+            <img className="timer-image" src={timerImage} alt="hourglass timer image" />
 
         </div>
     )
