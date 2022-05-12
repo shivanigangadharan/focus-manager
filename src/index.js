@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { TimerDurationProvider } from './context/timerContext';
+import { TaskListProvider } from './context/taskContext';
 
 ReactDOM.render(
     <React.StrictMode>
         <TimerDurationProvider>
-            <App />
+            <TaskListProvider>
+                <App />
+            </TaskListProvider>
         </TimerDurationProvider>
     </React.StrictMode>,
     document.getElementById('root'));
