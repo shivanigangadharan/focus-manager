@@ -9,8 +9,9 @@ export default function TimerPage() {
     return (
         <div>
             <Header />
-            <Sidebar />
+
             <div className="timer-page-container">
+                <Sidebar />
                 <TheTimer />
                 <Tasks />
             </div>

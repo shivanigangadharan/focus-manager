@@ -17,24 +17,26 @@ export default function Tasks() {
     }
 
     return (
-        <div>
-            <h1> Tasks </h1>
+        <div className="tasks-container">
+            <h1 className="tasks-heading"> Tasks </h1>
 
             <div>
                 {state.map((ele) => {
-                    return <div className={ele.status ? "done-task" : "pending-task"}>
-                        <input type="checkbox" checked={ele.status ? true : false}
-                            onClick={() => { ToggleState(ele) }}
-                        />
-                        {ele.title}
-                        <button onClick={(e) => dispatch({ type: "DELETE_TASK", payload: { title: ele.title } })}> Delete </button>
+                    return <div className="to-do">
+                        <div className="input-div">
+                            <input type="checkbox" checked={ele.status ? true : false}
+                                onClick={() => { ToggleState(ele) }}
+                            />
+                            <div className={ele.status ? "task-title done" : "task-title pending"}>{ele.title}</div>
+                        </div>
+                        <div onClick={(e) => dispatch({ type: "DELETE_TASK", payload: { title: ele.title } })}> <i class="fa-solid fa-trash"></i></div>
                     </div>
                 })}
             </div>
-
-            <input type="text" onChange={(e) => setInputText(e.target.value)} />
-
-            <button onClick={(e) => dispatch({ type: "ADD_TASK", payload: { title: inputText, status: false } })}> Add task </button>
+            <div className="add-task-div">
+                <input className="task-input" type="text" onChange={(e) => setInputText(e.target.value)} />
+                <button className="btn add-btn" onClick={(e) => dispatch({ type: "ADD_TASK", payload: { title: inputText, status: false } })}> Add task </button>
+            </div>
         </div>
     )
 }

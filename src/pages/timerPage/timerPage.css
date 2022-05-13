@@ -1,4 +1,7 @@
 .timer-page-container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    height: 100vh;
+    justify-content: space-evenly;
+    padding: 10rem 1rem;
 }
