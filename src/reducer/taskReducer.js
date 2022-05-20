@@ -4,9 +4,22 @@ export const taskReducer = (state, action) => {
         case "ADD_TASK":
             return [...state, action.payload]
         case "CHANGE_TASK_STATE":
-            return state.filter((task) => task.title !== action.payload.title)
-
+            //state : [
+            //     {
+            //         title: "task one",
+            //         _id: _783592,
+            //         status: false
+            //     }
+            // ]
+            const ele = state.find((e) => e._id === action.payload._id);
+            const taskIndex = state.indexOf(ele);
+            console.log(taskIndex);
+            if (action.payload.status === true) {
+                return [...state, state[taskIndex] = { ...state[taskIndex], status: false }]
+            } else {
+                return [...state, state[taskIndex] = { ...state[taskIndex], status: true }]
+            }
         case "DELETE_TASK":
-            return state.filter((task) => task.title !== action.payload.title)
+            return state.filter((task) => task._id !== action.payload._id)
     }
 }
