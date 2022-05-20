@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/timerpage" element={<TimerPage />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/knowmore" element={<KnowMore />} />
+          <Route path="timerpage" element={<TimerPage />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="knowmore" element={<KnowMore />} />
         </Routes>
       </BrowserRouter>
     </div>
