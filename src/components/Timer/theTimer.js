@@ -7,7 +7,7 @@ import stop from '../../assets/stop.wav';
 
 export default function TheTimer() {
 
-    const { userTimer, setUserTimer } = useTimerDuration();
+    const { userTimer, setUserTimer, userShortBreak, userLongBreak } = useTimerDuration();
 
     const [currentindex, setCurrentIndex] = useState(0);
     const [timer, setTimer] = useState(userTimer);
@@ -22,11 +22,11 @@ export default function TheTimer() {
         if (type === "pomodoro") {
             setTimer(userTimer);
         } else if (type === "shortbreak") {
-            setTimer(300);
+            setTimer(userShortBreak);
         } else {
-            setTimer(600);
+            setTimer(userLongBreak);
         }
-    }, [userTimer, type]);
+    }, [userTimer, type, userShortBreak, userLongBreak]);
 
     const children = ({ remainingTime }) => {
         const minutes = Math.floor(remainingTime / 60)

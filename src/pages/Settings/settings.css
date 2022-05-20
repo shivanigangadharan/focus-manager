@@ -1,0 +1,57 @@
+.settings-input-div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.settings-title{
+    color: lightgrey;
+    font-weight: 800;
+    text-decoration: blueviolet;
+}
+.ip-label{
+    color: lightgrey;
+    font-size: 1.15rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.time-input{
+    border-radius: 999px;
+    width: 3rem;
+    height: 3rem;
+    outline: none;
+    padding: 0.25rem;
+    font-size: 1.25rem;
+    text-align: center;
+    background: var(--darkgrey);
+    border: 2px solid grey;
+    box-shadow: 1px 1px 5px 3px #1b1a1a;
+    color: lightgrey;
+}
+.time-input:hover{
+    border: 2px solid lightgrey;
+    transition-duration: 0.3s;
+}
+.save-btn{
+    border: 2px solid grey;
+    border-radius: 2px;
+    padding: 0.25rem 1.5rem;
+    background: none;
+    color: grey;
+}
+.save-btn:hover{
+    color: lightgrey;
+    border: 2px solid lightgrey;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
