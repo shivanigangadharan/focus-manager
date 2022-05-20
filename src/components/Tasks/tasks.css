@@ -1,0 +1,54 @@
+.tasks-container{
+    max-height: 28rem;
+    overflow-y: auto;
+}
+.tasks-heading{
+    color: var(--lightgrey);
+    font-weight: 700;
+}
+.pending{
+    color: gold;
+}
+.done{
+    color: green;
+}
+.add-task-div{
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+.task-input{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--lightgrey);
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    background: #464444;
+    color: white;
+}
+.input-div{
+    display: flex;
+    align-items: center;
+}
+.to-do{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    background: #202020;
+    padding: 1rem 1.2rem;
+    gap: 1rem;
+    margin: 1.2rem 0px;
+}
+.add-btn{
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 2px solid grey;
+    background: grey;
+}
+.add-btn:hover{
+    background: rgb(155, 154, 154);
+    cursor: pointer;
+}

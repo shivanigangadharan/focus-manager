@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useTimerDuration } from '../context/timerContext';
+import { useTimerDuration } from '../../context/timerContext';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import './theTimer.css';
-import playpause from '../assets/playpause.wav';
-import stop from '../assets/stop.wav';
+import playpause from '../../assets/playpause.wav';
+import stop from '../../assets/stop.wav';
 
 export default function TheTimer() {
 
@@ -72,9 +72,6 @@ export default function TheTimer() {
 
                     <span className="icon stop" onClick={() => { setCurrentIndex(currentindex + 1); setRunning(false); Stop.play() }}><i className="fa-solid fa-square"></i></span>
                 </div>
-            </div>
-            <div className="tasks-section">
-
             </div>
         </div >
     )
