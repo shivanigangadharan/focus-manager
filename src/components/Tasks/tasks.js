@@ -10,10 +10,8 @@ export default function Tasks() {
     const short_uuid = uuid().slice(0, 8);
 
     const ToggleState = (ele) => {
-        console.log(ele);
         dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } });
         dispatch({ type: "ADD_TASK", payload: { title: ele.title, status: !ele.status, _id: ele._id } });
-
     }
 
     return (
