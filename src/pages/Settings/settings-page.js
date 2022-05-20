@@ -37,6 +37,7 @@ export default function TimerPage() {
                         </div>
                     </div>
                 </div>
+                <TheTimer />
             </div>
         </div>
     )
