@@ -16,7 +16,7 @@ export default function TimerPage() {
     return (
         <div>
             <Header />
-            <div className="timer-page-container">
+            <div className="settings-page-container">
                 <Sidebar />
                 <div className="settings-content">
                     <h2 className="settings-title"> Change settings for timer and breaks duration </h2>

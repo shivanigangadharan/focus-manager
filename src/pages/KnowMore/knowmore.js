@@ -7,7 +7,7 @@ export default function KnowMore() {
     return (
         <div>
             <Header />
-            <div className="timer-page-container">
+            <div className="know-more-container">
                 <Sidebar />
                 <div className="knowMore-content">
                     <h2> What is Pomodoro? </h2>
