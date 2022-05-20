@@ -9,7 +9,7 @@ export default function Tasks() {
     const [taskClass, setTaskClass] = useState("pending-task");
     const short_uuid = uuid().slice(0, 8);
 
-    const ToggleState = (ele) => {
+    const toggleTaskStatus = (ele) => {
         dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } });
         dispatch({ type: "ADD_TASK", payload: { title: ele.title, status: !ele.status, _id: ele._id } });
     }
@@ -23,7 +23,7 @@ export default function Tasks() {
                     return <div className="to-do" key={ele._id}>
                         <div className="input-div">
                             <input type="checkbox" checked={ele.status ? true : false}
-                                onClick={() => { ToggleState(ele) }}
+                                onClick={() => { toggleTaskStatus(ele) }}
                             />
                             <div className={ele.status ? "task-title done" : "task-title pending"}>{ele.title}</div>
                         </div>
