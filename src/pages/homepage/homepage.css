@@ -3,7 +3,6 @@
     gap: 10rem;
     align-items: center;
     justify-content: center;
-    /* padding: clamp(2rem, 10%, 8rem); */
     height: 100vh;
 }
 .pomo-title{
