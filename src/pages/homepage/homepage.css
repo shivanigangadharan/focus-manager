@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 2rem;
 }
+
 .pomo-title{
     font-size: clamp(4rem, 500%, 8rem);
     font-weight: 800;

@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/sidebar';
 import Header from '../../components/Header/header';
 import Tasks from '../../components/Tasks/tasks';
 import { useTimerDuration } from '../../context/timerContext';
+import '../timerPage/timerPage.css';
 
 export default function TimerPage() {
     const [pomoTimer, setPomoTimer] = useState();
