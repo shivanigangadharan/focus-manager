@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar/sidebar';
 import Header from '../../components/Header/header';
 import Tasks from '../../components/Tasks/tasks';
 import { useTimerDuration } from '../../context/timerContext';
+import '../timerPage/timerPage.css';
 
 export default function TimerPage() {
     const [pomoTimer, setPomoTimer] = useState();
@@ -15,7 +16,7 @@ export default function TimerPage() {
     return (
         <div>
             <Header />
-            <div className="timer-page-container">
+            <div className="settings-page-container">
                 <Sidebar />
                 <div className="settings-content">
                     <h2 className="settings-title"> Change settings for timer and breaks duration </h2>

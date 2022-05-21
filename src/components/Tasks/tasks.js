@@ -8,6 +8,7 @@ export default function Tasks() {
     const [inputText, setInputText] = useState();
     const [taskClass, setTaskClass] = useState("pending-task");
     const short_uuid = uuid().slice(0, 8);
+    const [val, setVal] = useState('');
 
     const toggleTaskStatus = (ele) => {
         dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } });
@@ -32,8 +33,8 @@ export default function Tasks() {
                 })}
             </div>
             <div className="add-task-div">
-                <input className="task-input" type="text" onChange={(e) => setInputText(e.target.value)} />
-                <button className="btn add-btn" onClick={(e) => dispatch({ type: "ADD_TASK", payload: { title: inputText, status: false, _id: short_uuid } })}> Add task </button>
+                <input className="task-input" type="text" onChange={(e) => { setInputText(e.target.value); setVal(e.target.value); }} value={val} />
+                <button className="btn add-btn" onClick={(e) => { dispatch({ type: "ADD_TASK", payload: { title: inputText, status: false, _id: short_uuid } }); setVal('') }}> Add task </button>
             </div>
         </div>
     )
