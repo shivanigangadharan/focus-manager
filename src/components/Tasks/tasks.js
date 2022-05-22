@@ -23,12 +23,15 @@ export default function Tasks() {
                 {state.map((ele) => {
                     return <div className="to-do" key={ele._id}>
                         <div className="input-div">
-                            <input type="checkbox" checked={ele.status ? true : false}
+                            <input type="checkbox" className="checkbox" checked={ele.status ? true : false}
                                 onClick={() => { toggleTaskStatus(ele) }}
                             />
                             <div className={ele.status ? "task-title done" : "task-title pending"}>{ele.title}</div>
                         </div>
-                        <div onClick={(e) => dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } })}> <i className="fa-solid fa-trash"></i></div>
+                        <div className="task-icons">
+                            <div onClick={() => { dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } }); setVal(ele.title) }}> <i className="fa-solid fa-pen"></i></div>
+                            <div onClick={(e) => dispatch({ type: "DELETE_TASK", payload: { _id: ele._id } })}> <i className="fa-solid fa-trash"></i></div>
+                        </div>
                     </div>
                 })}
             </div>
