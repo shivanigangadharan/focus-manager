@@ -4,6 +4,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import './theTimer.css';
 import playpause from '../../assets/playpause.wav';
 import stop from '../../assets/stop.wav';
+import happyBells from '../../assets/happyBells.wav';
 
 export default function TheTimer() {
 
@@ -17,6 +18,7 @@ export default function TheTimer() {
     const [seconds, setSeconds] = useState(timer % 60);
     const playPause = new Audio(playpause);
     const Stop = new Audio(stop);
+    const endingSound = new Audio(happyBells);
 
     useEffect(() => {
         if (type === "pomodoro") {
@@ -59,6 +61,7 @@ export default function TheTimer() {
                     onComplete={() => {
                         setCurrentIndex(currentindex + 1);
                         setRunning(false);
+                        endingSound.play();
                     }
                     }
                 >

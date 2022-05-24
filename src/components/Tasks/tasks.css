@@ -10,12 +10,18 @@
     color: gold;
 }
 .done{
-    color: green;
+    color: rgb(39, 204, 39);
+    text-decoration-line: line-through;
 }
 .add-task-div{
     display: flex;
     align-items: center;
     gap: 0px;
+}
+.checkbox{
+    padding: 1rem;
+    color: red;
+    background: yellow;
 }
 .task-input{
     outline: none;
@@ -28,6 +34,7 @@
 }
 .input-div{
     display: flex;
+    gap: 1rem;
     align-items: center;
 }
 .to-do{
@@ -37,8 +44,18 @@
     font-size: 1.2rem;
     background: #202020;
     padding: 1rem 1.2rem;
-    gap: 1rem;
     margin: 1.2rem 0px;
+}
+.task-icons{
+    display: flex;
+    gap: 1rem;
+}
+.task-icons>*{
+    color: grey;
+    cursor: pointer;
+}
+.task-icons>*:hover{
+    color: lightgrey;
 }
 .add-btn{
     font-size: 1.2rem;
