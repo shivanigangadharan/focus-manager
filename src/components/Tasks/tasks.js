@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useTaskList } from '../../context/taskContext';
 import './tasks.css';
-import { v4 as uuid } from 'uuid';
 import axios from 'axios';
 
-
 export default function Tasks() {
-    const { state, dispatch } = useTaskList();
     const [tasks, setTasks] = useState([]);
     const [inputText, setInputText] = useState();
     const [taskClass, setTaskClass] = useState("pending-task");
-    const short_uuid = uuid().slice(0, 8);
     const [val, setVal] = useState('');
 
     const fetchData = async () => {
