@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './tasks.css';
 import axios from 'axios';
+import { useAuth } from '../../context/authContext';
 
 export default function Tasks() {
+    const { loggedUserID } = useAuth();
     const [tasks, setTasks] = useState([]);
     const [inputText, setInputText] = useState();
     const [taskClass, setTaskClass] = useState("pending-task");
     const [val, setVal] = useState('');
 
     const fetchData = async () => {
-        const res = await axios.get("https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/1/userTasks");
+        const res = await axios.get(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks`);
         console.log("res = ", res);
         setTasks(res.data);
     }
@@ -19,22 +21,27 @@ export default function Tasks() {
     }, []);
 
     const toggleTaskStatus = async (updatedTask) => {
-        const res = await axios.put(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/1/userTasks/${updatedTask.id}`,
+        const res = await axios.put(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks/${updatedTask.id}`,
             updatedTask
         );
         fetchData();
     }
 
     const addTask = async (taskObj) => {
-        const res = await axios.post("https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/1/userTasks",
-            taskObj
-        );
-        console.log("posted: ", res);
-        fetchData();
+        if (loggedUserID) {
+            const res = await axios.post(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks`,
+                taskObj
+            );
+            console.log("posted: ", res);
+            fetchData();
+        }
+        else {
+            alert("Please login to add tasks.");
+        }
     }
 
     const deleteTask = async (taskId) => {
-        const res = await axios.delete(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/1/userTasks/${taskId}`);
+        const res = await axios.delete(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks/${taskId}`);
         console.log("Deleted: ", res.data);
         fetchData();
     }

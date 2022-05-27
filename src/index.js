@@ -5,14 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { TimerDurationProvider } from './context/timerContext';
 import { TaskListProvider } from './context/taskContext';
+import { AuthProvider } from './context/authContext';
 
 ReactDOM.render(
     <React.StrictMode>
-        <TimerDurationProvider>
-            <TaskListProvider>
-                <App />
-            </TaskListProvider>
-        </TimerDurationProvider>
+        <AuthProvider>
+            <TimerDurationProvider>
+                <TaskListProvider>
+                    <App />
+                </TaskListProvider>
+            </TimerDurationProvider>
+        </AuthProvider>
     </React.StrictMode>,
     document.getElementById('root'));
 
