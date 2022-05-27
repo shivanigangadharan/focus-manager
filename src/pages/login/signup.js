@@ -53,19 +53,18 @@ export default function Signup() {
                                 <div onClick={() => { pswdType === "password" ? setPswdType("text") : setPswdType("password") }} className="show-pswd"> {pswdType === "password" ? "Show password" : "Hide password"} </div>
                             </div>
                         </div>
-
-                        <div className="remember-me">
-                            <div>
-                                <input type="checkbox" required onClick={e => toggleCheck(e)} /> I accept all terms and conditions
-                            </div>
+                        <div className="accept">
+                            <input type="checkbox" required onClick={e => toggleCheck(e)} /> I accept all terms and conditions
                         </div>
-                        <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btn login">Create new account</button>
-                        <div className="create">
-                            <Link to="/login">
-                                Already have an account
+                        <center>
+                            <button type="submit" onClick={(e) => { handleSubmit(e) }} className="btn login">Create new account</button>
+                            <div className="create">
+                                <Link to="/login">
+                                    Already have an account
                                 <i className="fa-solid fa-chevron-right"></i>
-                            </Link>
-                        </div>
+                                </Link>
+                            </div>
+                        </center>
                     </form>
                 </div>
 

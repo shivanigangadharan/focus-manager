@@ -38,20 +38,14 @@ export default function Login() {
                                 <br />
                                 <input onChange={e => setPassword(e.target.value)} className="text-input" type="password" placeholder="Enter password : ***********" />
                             </div>
-                        </center>
-                        <div className="remember-me">
-                            <div>
-                                <input type="checkbox" /> Remember me
-                            </div>
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                        <button onClick={e => handleLogin(e)} className="btn login">Login</button>
-                        <div className="create">
-                            <Link to="/signup">
-                                Create new account
+                            <button onClick={e => handleLogin(e)} className="btn login">Submit</button>
+                            <div className="create">
+                                <Link to="/signup">
+                                    Create new account
                                 <i className="fa-solid fa-chevron-right" />
-                            </Link>
-                        </div>
+                                </Link>
+                            </div>
+                        </center>
                     </form>
                 </div>
 
