@@ -12,7 +12,6 @@ export default function Tasks() {
 
     const fetchData = async () => {
         const res = await axios.get(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks`);
-        console.log("res = ", res);
         setTasks(res.data);
     }
 
@@ -34,7 +33,6 @@ export default function Tasks() {
             const res = await axios.post(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks`,
                 taskObj
             );
-            console.log("posted: ", res);
             fetchData();
         }
         else {
@@ -44,7 +42,6 @@ export default function Tasks() {
 
     const deleteTask = async (taskId) => {
         const res = await axios.delete(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks/${taskId}`);
-        console.log("Deleted: ", res.data);
         fetchData();
     }
 

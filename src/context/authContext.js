@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
                 email: email,
                 password: password,
             });
-            console.log("Signed up user: ", res)
             setUser(res.data);
             localStorage.setItem("user", JSON.stringify(res.data.id));
             setLoggedUserID(res.data.id);
