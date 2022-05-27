@@ -17,8 +17,10 @@ export default function Tasks() {
     }
 
     useEffect(() => {
-        fetchData();
-    }, []);
+        if (loggedUserID) {
+            fetchData();
+        }
+    }, [loggedUserID]);
 
     const toggleTaskStatus = async (updatedTask) => {
         const res = await axios.put(`https://627e95b5b75a25d3f3bacc6f.mockapi.io/api/tasks/users/${loggedUserID}/userTasks/${updatedTask.id}`,

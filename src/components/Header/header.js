@@ -11,11 +11,12 @@ export default function Header() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (loggedUserID) {
+        if (loggedUserID && user) {
             setLoggedin(true);
             setName(user.name);
         } else {
             setName(null);
+            setLoggedUserID(null);
             setLoggedin(false);
         }
     }, [loggedUserID]);
