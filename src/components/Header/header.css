@@ -4,8 +4,15 @@
     left: 0;
     padding: 0rem 3rem;
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
     align-items: center;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 .white-logo{
     width: 3rem;
@@ -14,4 +21,15 @@
 .header-title{
     font-weight: 800;
     color: rgba(255, 255, 255, 0.829);
+}
+.header-elements{
+    color: lightgray;
+    display: flex;
+    gap: 4rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+.header-elements:nth-child(2):hover{
+    color: white;
+    cursor: pointer;
 }
