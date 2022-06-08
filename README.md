@@ -15,7 +15,8 @@ Focus Manager is a time management tool that lets you use the Pomodoro technique
   - Pomodoro timer (25 mins)
   - Short break timer (5 mins)
   - Long break timer (10 mins)
-- User can also add tasks, edit and delete tasks (if logged in).
+- These timers can be paused, stopped and run.
+- User can also add tasks, edit and delete tasks (if logged in). 
 - If a task is complete, user can mark it as checked (or unchecked if not done)
 - Timer functionality can be used wihtout having to login.
 
