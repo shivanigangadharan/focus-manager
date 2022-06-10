@@ -10,6 +10,12 @@ Focus Manager is a time management tool that lets you use the Pomodoro technique
 
 ## Functionalities
 
+### Authentication
+- Sign up with new account
+- Login to existing account
+- Logout
+- Guest login
+
 ### Timer page
 - User is given three different timers
   - Pomodoro timer (25 mins)
